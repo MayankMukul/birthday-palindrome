@@ -24,7 +24,7 @@ function ispalindrome (){
     message.innerText = "String is Palindrome";
 }
 
-function datetostring (date) {
+function datetostring () {
    var datetostr = {day : '', month : '', year : ''};
     if (date.day<10){
         datetostr.day = '0' + date.day;
@@ -41,13 +41,26 @@ function datetostring (date) {
     datetostr.year = date.year.toString() ;
 
     console.log(datetostr);
-}   
-
-var date = {
-    day:"1",
-    month: "2",
-    year : "2020"
 }
 
-datebtn.addEventListener("click",datetostring(date))
+//return date in different format
+function returndate(){
+    var newdate = [];
+    newdate.push(date.day+date.month+date.year);
+    newdate.push(date.month+date.day+date.year);
+    newdate.push(date.year+date.month+date.day);
+
+    newdate.push(date.day+date.month+date.year.slice(2,4));
+    newdate.push(date.month+date.day+date.year.slice(2,4));
+    newdate.push(date.year.slice(2)+date.month+date.day);
+    console.log(newdate);
+}
+
+var date = {
+    day:"01",
+    month: "02",
+    year : "2012"
+}
+
+datebtn.addEventListener("click",returndate)
 btn.addEventListener("click",ispalindrome);
