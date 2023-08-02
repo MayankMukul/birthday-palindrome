@@ -10,18 +10,15 @@ function reverseStr (str) {
     return (rev.join(''));
 }
 
-function ispalindrome (){
-    var revStr = reverseStr(string.value);
-    console.log(`Original String: ${string.value}`);
-    console.log(`Reverse of the given string is :${revStr}`) ;
-    for (var i=0 ; i<string.value.length/2 ; i++) {
-        if (string.value[i]===revStr[i]) {
+function ispalindrome (string){
+    var revStr = reverseStr(string);
+ for (var i=0 ; i<string.length/2 ; i++) {
+        if (string[i]===revStr[i]) {
         } else {
-            message.innerText ="String is Not Palindrome";
-            return  ; 
+            return false; 
         }
     }
-    message.innerText = "String is Palindrome";
+    return true;
 }
 
 function datetostring (date) {
@@ -37,7 +34,6 @@ function datetostring (date) {
     } else {
         datetostr.month = date.month.toString();
     }
-
     datetostr.year = date.year.toString() ;
 
     console.log(datetostr);
@@ -48,7 +44,6 @@ function returndate(date){
     var ddmmyyyy = (date.day+date.month+date.year);
     var mmddyyyy = (date.month+date.day+date.year);
     var yyyymmdd = (date.year+date.month+date.day);
-
     var ddmmyy = (date.day+date.month+date.year.slice(-2));
     var mmddyy = (date.month+date.day+date.year.slice(-2));
     var yymmdd = (date.year.slice(-2)+date.month+date.day);
@@ -56,9 +51,9 @@ function returndate(date){
 }
 
 var date = {
-    day:"01",
-    month: "02",
-    year : "2012"
+    day: 1,
+    month: 2,
+    year : 2012
 }
 
 function checkPalindromForAllDateFormats (date){
@@ -70,6 +65,10 @@ function checkPalindromForAllDateFormats (date){
         }
     }
     return flag;
+}
+
+function nxtpalindrome(){
+    
 }
 
 // datebtn.addEventListener("click",returndate)
