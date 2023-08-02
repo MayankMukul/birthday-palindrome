@@ -24,7 +24,7 @@ function ispalindrome (){
     message.innerText = "String is Palindrome";
 }
 
-function datetostring () {
+function datetostring (date) {
    var datetostr = {day : '', month : '', year : ''};
     if (date.day<10){
         datetostr.day = '0' + date.day;
@@ -44,16 +44,15 @@ function datetostring () {
 }
 
 //return date in different format
-function returndate(){
-    var newdate = [];
-    newdate.push(date.day+date.month+date.year);
-    newdate.push(date.month+date.day+date.year);
-    newdate.push(date.year+date.month+date.day);
+function returndate(date){
+    var ddmmyyyy = (date.day+date.month+date.year);
+    var mmddyyyy = (date.month+date.day+date.year);
+    var yyyymmdd = (date.year+date.month+date.day);
 
-    newdate.push(date.day+date.month+date.year.slice(2,4));
-    newdate.push(date.month+date.day+date.year.slice(2,4));
-    newdate.push(date.year.slice(2)+date.month+date.day);
-    console.log(newdate);
+    var ddmmyy = (date.day+date.month+date.year.slice(-2));
+    var mmddyy = (date.month+date.day+date.year.slice(-2));
+    var yymmdd = (date.year.slice(-2)+date.month+date.day);
+    return(ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yymmdd);
 }
 
 var date = {
@@ -62,5 +61,16 @@ var date = {
     year : "2012"
 }
 
-datebtn.addEventListener("click",returndate)
-btn.addEventListener("click",ispalindrome);
+function checkPalindromForAllDateFormats (date){
+    var listDate = (returndate(date));
+    var flag = false ;
+    for (var i=0;i< listDate.length;i++) {
+        if (ispalindrome(listDate[i])){
+            flag=true;
+        }
+    }
+    return flag;
+}
+
+// datebtn.addEventListener("click",returndate)
+// btn.addEventListener("click",ispalindrome);
