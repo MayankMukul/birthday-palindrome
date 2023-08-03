@@ -12,7 +12,9 @@ function reverseStr (str) {
 
 function ispalindrome (str){
     var revStr = reverseStr(str);
-return str === revStr;
+    if (str === revStr){
+        return true ;
+    } else return false ;
 }
 
 function datetostring (date) {
@@ -34,29 +36,30 @@ function datetostring (date) {
 }
 
 //return date in different format
-function returndate(datenor){
+function returndatelist(datenor){
     
     var date = datetostring(datenor);
     
-    var ddmmyyyy = (date.day+date.month+date.year);
-    var mmddyyyy = (date.month+date.day+date.year);
-    var yyyymmdd = (date.year+date.month+date.day);
+    var ddmmyyyy = (date.day + date.month + date.year);
+    var mmddyyyy = (date.month + date.day + date.year);
+    var yyyymmdd = (date.year + date.month + date.day);
     var ddmmyy = (date.day + date.month + date.year.slice(-2));
-    var mmddyy = (date.month+date.day+date.year.slice(-2));
-    var yymmdd = (date.year.slice(-2)+date.month+date.day);
-    return(ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yymmdd);
+    var mmddyy = (date.month + date.day + date.year.slice(-2));
+    var yymmdd = (date.year.slice(-2) + date.month + date.day);
+
+    return  [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yymmdd];
 }
 
 var date = {
-    day: 3,
-    month: 2,
-    year : 2012
+    day: 5,
+    month: 1,
+    year : 2020
 }
 
 function checkPalindromForAllDateFormats (date){
-    var listDate = (returndate(date));
+    var listDate = (returndatelist(date));
     var flag = false ;
-    for (var i=0;i< listDate.length;i++) {
+    for (var i=0; i < listDate.length;i++) {
         if (ispalindrome(listDate[i])){
             flag = true;
             break;
