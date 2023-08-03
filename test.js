@@ -171,13 +171,31 @@ function prevday(date){
     
 }
 
-function prevpalindromedate(date) {
+function prevpalindromedate() {
     var count = 0;
     var prevdate = prevday(date);
 
+    while (1){
+        count++;
+        var ispalindrome = checkPalindromForAllDateFormats(prevdate);
+        if (ispalindrome){
+            break;            
+        }
+        prevdate = prevday(prevdate);
+    }
+
+    return [ count , prevdate];
 }
 
+function closedate(){
+    var nxtdate = nxtpalindromedate();
+    var prevdate = prevpalindromedate();
+    if (nxtdate[0]<prevdate[0]){
+        return nxtdate;
+    } else {
+        return prevdate;
+    }
+}
 // datebtn.addEventListener("click",returndate)
 // btn.addEventListener("click",ispalindrome);
-//
-//nxtpalindromedate(date);
+
