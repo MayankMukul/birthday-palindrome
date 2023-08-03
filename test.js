@@ -51,9 +51,9 @@ function returndatelist(datenor){
 }
 
 var date = {
-    day: 5,
+    day: 1,
     month: 1,
-    year : 2020
+    year : 2021
 }
 
 function checkPalindromForAllDateFormats (date){
@@ -132,7 +132,52 @@ function nxtpalindromedate(){
     return [cont, nxtdate];
 }
 
+function prevday(date){
+    var daysinmonth = [31,28,31,30,31,30,31,31,30,31,30,31];
+    var day=date.day-1;
+    var month = date.month;
+    var year = date.year;
+
+    if (month==3){
+        if(checkleap(year)){
+            if (day==0){
+                day=29;
+                month--;
+            }
+        } else {
+            if (day==0 ){
+                day=28;
+                month--;
+            }
+        }
+    } else if(day == 0 ){
+            month-- ;
+            if(month==0){
+                month=12;
+                year--;
+            }
+            day = daysinmonth[month - 1];   
+     }
+    if(month==0){
+        month=12;
+        year--;
+    }
+
+    return {
+        day: day,
+        month: month,
+        year: year
+    };
+    
+}
+
+function prevpalindromedate(date) {
+    var count = 0;
+    var prevdate = prevday(date);
+
+}
+
 // datebtn.addEventListener("click",returndate)
 // btn.addEventListener("click",ispalindrome);
 //
-nxtpalindromedate(date);
+//nxtpalindromedate(date);
