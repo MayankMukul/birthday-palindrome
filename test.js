@@ -210,6 +210,8 @@ function output(){
             var result = closedate(date);
             message.innerText="The Next Palindrome Date is " + result[1].day+"/" +result[1].month +"/" +result[1].year + " you missed it by " + result[0] + day(result[0]);           
         }
+    } else {
+        message.innerText="Enter your Birthday First !!...";
     }
 }
 

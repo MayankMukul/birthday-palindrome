@@ -4,10 +4,23 @@ body {
     padding: 0 2rem ;
     background-color: whitesmoke;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 480px){
+    body {
+        margin: 0;
+        padding: 0 ;
+    }
+    .container {
+        width: 100%;
+    }
 }
 
 .main-title {
-    margin: auto;
+    
+    margin: 0 auto;
     background-color: yellow;
     width: 80%;
     padding: 3rem;
@@ -20,25 +33,36 @@ body {
 
 .container {
     text-align: center;
-    margin: auto ;
-    margin-top: 3rem;
+    margin: auto ; 
     width: 50%;
     border:  1px;
     padding: 2rem;
     background-color: rgb(255, 255, 241);
     border-radius: 2rem;
 }
-
+@media screen and (max-width: 480px){
+    body {
+        margin: 0;
+        padding: 0 ;
+    }
+    .container {
+        width: 90%;
+        margin: auto;
+    }
+    .footer {
+        margin-bottom: 0;
+    }
+}
 label {
     margin: 1rem;
     padding: 1rem;
-    font-size: 15px;
+    font-size: 1rem;
 }
 
 input {
     margin: 1rem;
     padding: .5rem;
-    font-size: 15px;
+    font-size: 1rempx;
 }
 
 button {
@@ -49,17 +73,22 @@ button {
 }
 
 #output {
-    margin: 1rem;
-    
+    margin: 1rem; 
     font-size: 18px;
 }
 
 .footer {
     margin: auto;
-    padding: 2rem;
+    text-align: center;
+    padding: 3rem;
     margin-bottom: 0;
     text-align: center;
-    border: 1rem;
+    border-top-right-radius: 3rem;
     width: 80%;
     background-color: yellow;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }
