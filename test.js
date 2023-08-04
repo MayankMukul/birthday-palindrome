@@ -1,8 +1,6 @@
-// var dob = document.querySelector("#dob");
-// var string = document.querySelector("#string");
-// var btn = document.querySelector("#submit");
-// var message = document.querySelector("#output");
-// var datebtn = document.querySelector("#date");
+var dob = document.querySelector("#dob");
+var btn = document.querySelector("#submit");
+var message = document.querySelector("#output");
 
 function reverseStr (str) {
     var chrlst=str.split('');
@@ -48,12 +46,6 @@ function returndatelist(datenor){
     var yymmdd = (date.year.slice(-2) + date.month + date.day);
 
     return  [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yymmdd];
-}
-
-var date = {
-    day: 1,
-    month: 1,
-    year : 2021
 }
 
 function checkPalindromForAllDateFormats (date){
@@ -117,7 +109,7 @@ function nxtday(date){
 
 }
 
-function nxtpalindromedate(){
+function nxtpalindromedate(date){
     var cont = 0 ;
     var nxtdate = nxtday(date);
 
@@ -171,7 +163,7 @@ function prevday(date){
     
 }
 
-function prevpalindromedate() {
+function prevpalindromedate(date) {
     var count = 0;
     var prevdate = prevday(date);
 
@@ -187,15 +179,40 @@ function prevpalindromedate() {
     return [ count , prevdate];
 }
 
-function closedate(){
-    var nxtdate = nxtpalindromedate();
-    var prevdate = prevpalindromedate();
+function closedate(date){
+    var nxtdate = nxtpalindromedate(date);
+    var prevdate = prevpalindromedate(date);
     if (nxtdate[0]<prevdate[0]){
         return nxtdate;
     } else {
         return prevdate;
     }
 }
-// datebtn.addEventListener("click",returndate)
-// btn.addEventListener("click",ispalindrome);
+
+function day(number){
+    return number>1 ? " days." : " day." ; 
+}
+
+function output(){
+    var dateStr = dob.value
+
+    if (dateStr !== ''){
+        var listofdate = dateStr.split('-');
+        var date = {
+            day : Number(listofdate[2]),
+            month : Number(listofdate[1]),
+            year : Number(listofdate[0])
+        };
+
+        if (checkPalindromForAllDateFormats(date) ) {
+            message.innerText="Yoooo! Your Birthday is a Palindrome Number"
+        } else {
+            var result = closedate(date);
+            message.innerText="The Next Palindrome Date is " + result[1].day+"/" +result[1].month +"/" +result[1].year + " you missed it by " + result[0] + day(result[0]);           
+        }
+    }
+}
+
+
+btn.addEventListener("click",output);
 
