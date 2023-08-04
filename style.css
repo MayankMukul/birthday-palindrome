@@ -1,0 +1,65 @@
+
+body {
+    margin: 0;
+    padding: 0 2rem ;
+    background-color: whitesmoke;
+    height: 100vh;
+}
+
+.main-title {
+    margin: auto;
+    background-color: yellow;
+    width: 80%;
+    padding: 3rem;
+    border-end-start-radius: 3rem;
+}
+
+.main-title > h1 {
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    margin: auto ;
+    margin-top: 3rem;
+    width: 50%;
+    border:  1px;
+    padding: 2rem;
+    background-color: rgb(255, 255, 241);
+    border-radius: 2rem;
+}
+
+label {
+    margin: 1rem;
+    padding: 1rem;
+    font-size: 15px;
+}
+
+input {
+    margin: 1rem;
+    padding: .5rem;
+    font-size: 15px;
+}
+
+button {
+    padding: .5rem;
+    cursor : pointer;
+    border-radius: .5rem;
+    
+}
+
+#output {
+    margin: 1rem;
+    
+    font-size: 18px;
+}
+
+.footer {
+    margin: auto;
+    padding: 2rem;
+    margin-bottom: 0;
+    text-align: center;
+    border: 1rem;
+    width: 80%;
+    background-color: yellow;
+}
